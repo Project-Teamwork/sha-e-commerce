@@ -61,22 +61,22 @@ const Button = styled.button`
   }
 `;
 
-function Register() {
-  const [email, setEmail] = useState("");
+function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function register() {
+  function login() {
     axios
-      .post("http://localhost:3636/auth/register", {
-        email,
+      .post("http://localhost:3636/auth/login", {
         username,
         password,
       })
       .then(({ data }) => {
-        if (data.message === true) {
-          navigate("/auth/login");
+        if (data.token) {
+          localStorage.setItem("token", data.token);
+
+          navigate("/profile");
         } else {
           alert(data.message);
         }
@@ -86,24 +86,16 @@ function Register() {
   return (
     <Container>
       <Navbar>
-        <Title>Register</Title>
+        <Title>Login</Title>
         <Button
           onClick={() => {
-            register();
+            login();
           }}
         >
-          Create Account
+          Login
         </Button>
       </Navbar>
       <Wrapper>
-        <Label>
-          Email:
-          <Input
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </Label>
         <Label>
           Username:
           <Input
@@ -125,4 +117,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;

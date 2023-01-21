@@ -3,12 +3,10 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  useNavigate,
 } from "react-router-dom";
-import axios from "axios";
-import { useState, useEffect } from "react";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -18,8 +16,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/auth/register" element={<Register />} />
-            <Route path="/auth/login" element={<h1>Login</h1>} />
-            <Route path="/auth/profile" element={<Home />} />
+            <Route path="/auth/login" element={<Login />} />
+            <Route path="/profile" element={<Home />} />
           </Routes>
         </div>
       </Router>

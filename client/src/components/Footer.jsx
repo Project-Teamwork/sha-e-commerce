@@ -1,18 +1,28 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const Container = styled.div `
-display: flex;
-align-items: center;
-width: 100vw;
-height: 5vh;
-font-size: 1.3rem;
-padding-inline: 0.5rem;
-`
+const Container = styled.div`
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 8vh;
+  font-size: 1.1rem;
+  background-color: black;
+  color: white;
+  text-align: left;
+  padding: 0 2rem;
+`;
 
-function Footer () {
-  return ( <Container>
-   This is the e-commerce Greenfield Project for SHA from Anita and Asif
-  </Container> );
+function Footer() {
+  return (
+    <Container>
+      <p>
+        This is an e-commerce shop for SHA's Greenfield Project from Anita and
+        Asif
+      </p>
+    </Container>
+  );
 }
 
-export default Footer ;
+export default Footer;

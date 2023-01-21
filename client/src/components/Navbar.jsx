@@ -6,6 +6,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 background-color: black;
+width: 100%;
 height: 10vh;
 padding: 0 2rem;
 color: white;

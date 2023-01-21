@@ -1,16 +1,28 @@
 import "./App.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import Home from "./pages/Home";
-import Hero from "./components/Hero";
-import Categories from "./components/Categories";
-import Footer from "./components/Footer";
+import Register from "./pages/Register";
 
 function App() {
   return (
     <div className="App">
-      <Home />
-      <Hero />
-      <Categories />
-      <Footer />
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/auth/register" element={<Register />} />
+            <Route path="/auth/login" element={<h1>Login</h1>} />
+            <Route path="/auth/profile" element={<Home />} />
+          </Routes>
+        </div>
+      </Router>
     </div>
   );
 }

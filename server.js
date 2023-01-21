@@ -16,7 +16,7 @@ app.use(
 
 app.use(express.json());
 
-app.use("/users", authRouter)
+app.use("/auth", authRouter)
 
 
 

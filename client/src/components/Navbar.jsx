@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { HiOutlineShoppingCart } from "react-icons/hi"
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div `
 display: flex;
@@ -25,15 +26,21 @@ padding-inline: 0 3rem;
 const ListItem = styled.li `
 padding-inline: 1rem;
 font-size: 1.3em;
+cursor: pointer;
+&:hover {
+ color: orange;
+}
 `
 
 function Navbar () {
+  const navigate = useNavigate();
+
   return ( <Container>
     <Logo>Navbar</Logo>
     <div>
       <List>
-        <ListItem>Register</ListItem>
-        <ListItem>Login</ListItem>
+        <ListItem onClick={()=> {navigate("/auth/register")}}>Register</ListItem>
+        <ListItem onClick={()=> {navigate("/auth/login")}}>Login</ListItem>
         <ListItem> <HiOutlineShoppingCart/> </ListItem>
       </List>
     </div>

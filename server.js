@@ -20,6 +20,7 @@ app.use("/users", authRouter)
 
 
 
+
 // server listening
 app.listen(port, () => {
   console.log(`Server is up at ${port}`);

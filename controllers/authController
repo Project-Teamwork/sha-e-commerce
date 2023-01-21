@@ -44,7 +44,7 @@ const loginUser = async (req, res) => {
       // Validate password
       bcrypt.compare(req.body.password, user.password, function(err, result) {
         if (result) {
-          let token = jwt.sign({ id: 'user._id' }, process.env.TOKEN_KEY, {expiresIn: 60 * 60}); 
+          let token = jwt.sign({ id: user._id }, process.env.TOKEN_KEY, {expiresIn: process.env.TOKEN_EXPIRES_IN}); 
           res.send(token);
         } else {
           res.send({message: "Wrong password"})
@@ -54,14 +54,13 @@ const loginUser = async (req, res) => {
   }
 };
 
-const verifyUser = async (req, res) => {
-  const {token} = req.body
-  jwt.verify (token, process.env.TOKEN_KEY, async (err, payload) => {
+const verifyUser = async (req, res) => { 
+  jwt.verify (req.body.token, process.env.TOKEN_KEY, async (err, payload) => {   
     if (payload) {
-      let user = await User.findOne({_id: payload.id});
-      res.send(user)
+      var user = await User.findOne({_id: payload.id });
+      res.send(user);
     } else {
-      res.send({message: "session expired"})
+      res.send({ message: "Session expired" });
     }
   });
 }
@@ -69,5 +68,5 @@ const verifyUser = async (req, res) => {
 module.exports = {
   registerUser,
   loginUser,
-  verifyUser
+  verifyUser,
 };

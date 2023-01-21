@@ -10,12 +10,12 @@ const Container = styled.div`
   color: white;
 `;
 
-const Title = styled.h1 `
-margin: 0;
-padding-block: 1rem 0;
-padding-inline: 1rem;
-text-align: left
-`
+const Title = styled.h1`
+  margin: 0;
+  padding-block: 1rem 0;
+  padding-inline: 1rem;
+  text-align: left;
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -37,50 +37,88 @@ const Input = styled.input`
   font-size: 1.1rem;
 `;
 
-const Navbar = styled.div `
-display: flex;
-justify-content: space-between;
-`
+const Navbar = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
-const Button = styled.button `
-width: 10rem;
- margin-block: 0.5rem 0;
- margin-inline: 2rem;
- font-size: 1.2rem;
- background-color:#DC7300;
- border-radius: 5px;
- transition: 0s background-color;
- 
- cursor: pointer;
- &:hover {
-  background-color:#E05404;
-  transition-delay: 0.1s;
- }
- &:active {
-  background-color:#7F1917;
- }
+const Button = styled.button`
+  width: 10rem;
+  margin-block: 0.5rem 0;
+  margin-inline: 2rem;
+  font-size: 1.2rem;
+  background-color: #dc7300;
+  border-radius: 5px;
+  transition: 0s background-color;
 
-`
+  cursor: pointer;
+  &:hover {
+    background-color: #e05404;
+    transition-delay: 0.1s;
+  }
+  &:active {
+    background-color: #7f1917;
+  }
+`;
 
 function Register() {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  function login() {
+    axios
+      .post("http://localhost:3636/auth/register", {
+        email,
+        username,
+        password,
+      })
+      .then(({ data }) => {
+        if (data.message === true) {
+          navigate("/auth/login");
+        } else {
+          alert(data.message);
+        }
+      });
+  }
+
   return (
     <Container>
-        <Navbar>
-          <Title>Register</Title>
-          <Button>Create Account</Button>
-        </Navbar>
+      <Navbar>
+        <Title>Register</Title>
+        <Button
+          onClick={() => {
+            login();
+          }}
+        >
+          Create Account
+        </Button>
+      </Navbar>
       <Wrapper>
         <Label>
           Email:
-          <Input />
+          <Input
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
         </Label>
         <Label>
           Username:
-          <Input />
+          <Input
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
         </Label>
         <Label>
           Password:
-          <Input />
+          <Input
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
         </Label>
       </Wrapper>
     </Container>

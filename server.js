@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken')
 const port = process.env.PORT || 3636;
 const cors = require('cors');
 const authRouter = require('./routers/authRoute');
+const itemRouter = require('./routers/itemRoute')
 const User = require('./modules/userModule');
 app.use(
   cors({
@@ -17,9 +18,7 @@ app.use(
 app.use(express.json());
 
 app.use("/auth", authRouter)
-
-
-
+app.use("/items", itemRouter )
 
 
 // server listening

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import NavbarProfile from "../components/NavbarProfile";
 import Hero from "../components/Hero";
 import Categories from "../components/Categories";

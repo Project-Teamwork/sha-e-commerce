@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -6,6 +7,7 @@ const Container = styled.div`
   width: 100%;
   margin-block: 0.5rem;
   font-size: 2rem;
+  cursor: pointer;
 `;
 const Laptop = styled.div`
   flex: 1;
@@ -39,9 +41,11 @@ const Span = styled.span`
 `;
 
 function Categories() {
+  const navigate = useNavigate();
+  
   return (
     <Container>
-      <Mobile>
+      <Mobile onClick={() => navigate("/")}>
         <Span> Mobile </Span>
       </Mobile>
       <Laptop>

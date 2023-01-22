@@ -36,7 +36,7 @@ function Navbar () {
   const navigate = useNavigate();
 
   return ( <Container>
-    <Logo>Navbar</Logo>
+    <Logo>Electronics Shop</Logo>
     <div>
       <List>
         <ListItem onClick={()=> {navigate("/auth/register")}}>Register</ListItem>

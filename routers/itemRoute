@@ -5,6 +5,8 @@ router.get("/", itemController.getItem);
 router.post("/", itemController.createItem);
 router.put("/:id", itemController.updateItem);
 router.delete("/:id", itemController.deleteItem);
+router.get("/laptops", itemController.getLaptops);
+
 
 
 module.exports = router;

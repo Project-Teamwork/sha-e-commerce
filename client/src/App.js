@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin"
+import Laptops from "./pages/Laptops";
 
 function App() {
   return (
@@ -17,6 +18,11 @@ function App() {
             <Route path="/auth/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/admin" element={<Admin />} />
+            <Route path="/profile/category/mobile" element={<Laptops />} />
+            <Route path="/profile/category/laptops" element={<Laptops />} />
+            <Route path="/profile/category/accessories" element={<Laptops />} />
+
+
           </Routes>
         </div>
       </Router>

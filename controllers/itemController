@@ -6,6 +6,11 @@ let items = await Item.find({})
 res.json(items)
 };
 
+const getLaptops = async (req, res) => {
+  let laptops = await Item.find({category: "laptop"})
+  res.send({list: laptops})
+}; 
+
 const createItem = async (req, res) => {
   let newItem = new Item (req.body) 
   await newItem.save();
@@ -29,4 +34,5 @@ module.exports = {
  createItem,
  updateItem,
  deleteItem,
+ getLaptops,
 };

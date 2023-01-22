@@ -45,13 +45,13 @@ function Categories() {
   
   return (
     <Container>
-      <Mobile onClick={() => navigate("/")}>
+      <Mobile onClick={() => navigate("/profile/category/mobile")}>
         <Span> Mobile </Span>
       </Mobile>
-      <Laptop>
-        <Span>Laptop</Span>
+      <Laptop onClick={() => navigate("/profile/category/laptops")}>
+        <Span>Laptop </Span>
       </Laptop>
-      <Accessories>
+      <Accessories  onClick={() => navigate("/profile/category/accessories")}>
         <Span>Gadgets</Span>
       </Accessories>
     </Container>

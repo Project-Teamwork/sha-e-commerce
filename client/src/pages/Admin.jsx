@@ -4,6 +4,9 @@ import NavbarProfile from "../components/NavbarProfile";
 import Footer from "../components/Footer";
 import styled from "styled-components";
 import ButtonBlue from "../components/ButtonBlue";
+import ButtonRed from "../components/ButtonRed";
+import DisplayCreated from "../components/displayCreatedItem";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,12 +31,17 @@ const Input = styled.input`
 `;
 
 const Select = styled.select`
-width: 15.5rem;
-height: 25px;
-margin-block: 0.4rem;
-font-size: 1.1rem;
+  width: 15.5rem;
+  height: 25px;
+  margin-block: 0.4rem;
+  font-size: 1.1rem;
+`;
 
-`
+const Container = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
 
 function Admin() {
   const [user, setUser] = useState("");
@@ -41,7 +49,8 @@ function Admin() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
-
+  const [item, setItem] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -64,19 +73,23 @@ function Admin() {
         price,
       })
       .then(({ data }) => {
-        alert("added");
+        setItem(data);
       });
   }
 
-  function select (event) {
-      const value = event.target.value;
-      setCategory(value);
-    };
+  function del(id) {
+    if(id){
+    axios.delete("http://localhost:3636/items/" + id);
+    window.location.reload(true);
+  } else {
+    window.location.reload(true);
+  }
+  }
 
   return (
     <div>
       <NavbarProfile>{user.username}</NavbarProfile>
-      <div>
+      <Container>
         <Wrapper>
           <Label>
             Name:
@@ -96,12 +109,11 @@ function Admin() {
           </Label>
           <Label>
             Category:
-            <Select  
-               onChange={(e) => setCategory(e.target.value)}>
+            <Select onChange={(e) => setCategory(e.target.value)}>
+              <option value="">select option</option>
               <option value="laptop">Laptop</option>
               <option value="mobile">Mobile</option>
               <option value="accessories">Accessories</option>
-              <option value="other">other</option>
             </Select>
           </Label>
           <Label>
@@ -120,7 +132,18 @@ function Admin() {
             Add Item
           </ButtonBlue>
         </Wrapper>
-      </div>
+        <Wrapper>
+          <DisplayCreated>
+            <p>Name: {item.name}</p>
+            <p>Description: {item.description}</p>
+            <p>Category: {item.category}</p>
+            <p>Price: {item.price}</p>
+            <p>Id: {item._id}</p>
+            <p>Date created: {item.date_added}</p>
+            <ButtonRed onClick={() => del(item._id)}>Delete</ButtonRed>
+          </DisplayCreated>
+        </Wrapper>
+      </Container>
       <Footer />
     </div>
   );

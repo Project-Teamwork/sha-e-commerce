@@ -42,7 +42,7 @@ const Navbar = styled.div`
   justify-content: space-between;
 `;
 
-const Button = styled.button`
+const ButtonOrange = styled.button`
   width: 10rem;
   margin-block: 0.5rem 0;
   margin-inline: 2rem;
@@ -50,6 +50,7 @@ const Button = styled.button`
   background-color: #dc7300;
   border-radius: 5px;
   transition: 0s background-color;
+  color:
 
   cursor: pointer;
   &:hover {
@@ -87,13 +88,13 @@ function Login() {
     <Container>
       <Navbar>
         <Title>Login</Title>
-        <Button
+        <ButtonOrange
           onClick={() => {
             login();
           }}
         >
           Login
-        </Button>
+        </ButtonOrange>
       </Navbar>
       <Wrapper>
         <Label>

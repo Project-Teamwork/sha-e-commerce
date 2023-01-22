@@ -33,6 +33,8 @@ const Span = styled.span`
   margin: 0.5em 0;
   padding: 0 0.5em;
   background-color: rgba(255, 255, 255, 0.5);
+  // background-color: rgba(0,0,0,0.5);
+  // color: white;
   border-radius: 2px;
 `;
 

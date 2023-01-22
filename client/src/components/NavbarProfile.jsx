@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { HiOutlineShoppingCart } from "react-icons/hi";
 
 const Container = styled.div`
   display: flex;
@@ -34,14 +33,11 @@ const ListItem = styled.li`
 function NavbarProfile(props) {
   return (
     <Container>
-      <Logo>Navbar</Logo>
+      <Logo>Dashboard</Logo>
       <div>
         <List>
           <ListItem>Welcome {props.children}</ListItem>
-          <ListItem>
-            {" "}
-            <HiOutlineShoppingCart />{" "}
-          </ListItem>
+          <ListItem> </ListItem>
         </List>
       </div>
     </Container>

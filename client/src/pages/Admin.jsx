@@ -78,12 +78,12 @@ function Admin() {
   }
 
   function del(id) {
-    if(id){
-    axios.delete("http://localhost:3636/items/" + id);
-    window.location.reload(true);
-  } else {
-    window.location.reload(true);
-  }
+    if (id) {
+      axios.delete("http://localhost:3636/items/" + id);
+      window.location.reload(true);
+    } else {
+      window.location.reload(true);
+    }
   }
 
   return (

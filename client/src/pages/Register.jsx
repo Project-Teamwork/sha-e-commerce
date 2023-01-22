@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import ButtonOrange from "../components/ButtonOrange";
 
 const Container = styled.div`
   width: 100%;
@@ -17,7 +18,7 @@ const Title = styled.h1`
   text-align: left;
 `;
 
-const Wrapper = styled.div`
+const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,26 +41,6 @@ const Input = styled.input`
 const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-const ButtonOrange = styled.button`
-  width: 10rem;
-  margin-block: 0.5rem 0;
-  margin-inline: 2rem;
-  font-size: 1.2rem;
-  background-color: #dc7300;
-  border-radius: 5px;
-  transition: 0s background-color;
-  color:
-
-  cursor: pointer;
-  &:hover {
-    background-color: #e05404;
-    transition-delay: 0.1s;
-  }
-  &:active {
-    background-color: #7f1917;
-  }
 `;
 
 function Register() {
@@ -96,7 +77,7 @@ function Register() {
           Create Account
         </ButtonOrange>
       </Navbar>
-      <Wrapper>
+      <FormWrapper>
         <Label>
           Email:
           <Input
@@ -121,7 +102,7 @@ function Register() {
             }}
           />
         </Label>
-      </Wrapper>
+      </FormWrapper>
     </Container>
   );
 }

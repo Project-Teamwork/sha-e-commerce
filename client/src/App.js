@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin"
 import Laptops from "./pages/Laptops";
+import Mobiles from "./pages/Mobiles";
+import Accessories from "./pages/Accessories";
 
 function App() {
   return (
@@ -18,9 +20,9 @@ function App() {
             <Route path="/auth/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/admin" element={<Admin />} />
-            <Route path="/profile/category/mobile" element={<Laptops />} />
+            <Route path="/profile/category/mobile" element={<Mobiles />} />
             <Route path="/profile/category/laptops" element={<Laptops />} />
-            <Route path="/profile/category/accessories" element={<Laptops />} />
+            <Route path="/profile/category/accessories" element={<Accessories />} />
 
 
           </Routes>

@@ -7,7 +7,7 @@ const Input = styled.input`
 `;
 
 function InputNumber(props) {
-  return <Input type="number" min="0" />;
+  return <Input type="number" min="0" placeholder="0"/>;
 }
 
 export default InputNumber;

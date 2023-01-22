@@ -52,7 +52,7 @@ function Categories() {
         <Span>Laptop </Span>
       </Laptop>
       <Accessories  onClick={() => navigate("/profile/category/accessories")}>
-        <Span>Gadgets</Span>
+        <Span>Accessories</Span>
       </Accessories>
     </Container>
   );

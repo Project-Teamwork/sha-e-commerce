@@ -8,7 +8,6 @@ import ButtonBlue from "../components/ButtonBlue";
 import InputNumber from "../components/InputNumber";
 import Footer from "../components/Footer";
 
-
 const Image = styled.img`
   width: 10em;
 `;
@@ -48,7 +47,7 @@ const Right = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const Wrapper = styled.div`
@@ -57,13 +56,13 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-function Laptops() {
+function Accessories() {
   const [list, setList] = useState([]);
   const [user, setUser] = useState("");
   const [item, setItem] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:3636/items/laptops").then(({ data }) => {
+    axios.get("http://localhost:3636/items/accessories").then(({ data }) => {
       setList(data.list);
     });
     if (localStorage.getItem("token")) {
@@ -84,14 +83,14 @@ function Laptops() {
   return (
     <div>
       <NavbarProfile>{user.username}</NavbarProfile>
-      <h1>Laptops</h1>
+      <h1>Accessories</h1>
       <Container>
         <ListContainer>
           {list.map((list) => {
             return (
               <Cards onClick={() => display(list)}>
                 <Image
-                  src="https://laptopmarket.gr/images/thumbnails/500/350/detailed/2/111.jpeg"
+                  src="https://images.static-thomann.de/pics/bdb/494897/15157953_800.jpg"
                   alt={list.name}
                 />
                 <Name>{list.name}</Name>
@@ -103,7 +102,7 @@ function Laptops() {
         <Wrapper>
           <Center>
             <CenterImage
-              src="https://laptopmarket.gr/images/thumbnails/500/350/detailed/2/111.jpeg"
+              src="https://images.static-thomann.de/pics/bdb/494897/15157953_800.jpg"
               alt={item.name}
             />
           </Center>
@@ -124,4 +123,4 @@ function Laptops() {
   );
 }
 
-export default Laptops;
+export default Accessories;

@@ -1,0 +1,17 @@
+const Cart = require("../modules/cartModule");
+
+
+const getItem = async (req, res) => {
+let items = await Item.find({})
+res.json(items)
+};
+
+const add_item_to_cart = async (req, res) => {
+ let 
+}
+
+
+
+module.exports = {
+
+};

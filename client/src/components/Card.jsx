@@ -7,6 +7,9 @@ const Card = styled.div`
   justify-content: flex-start;
   padding: 1em;
   cursor: pointer;
+  &&:hover {
+    transform: scale(1.05);
+  }
 `;
 
 function Cards(props) {

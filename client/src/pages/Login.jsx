@@ -88,7 +88,7 @@ function Login() {
         </Label>
         <Label>
           Password:
-          <Input
+          <Input type="password" 
             onChange={(e) => {
               setPassword(e.target.value);
             }}

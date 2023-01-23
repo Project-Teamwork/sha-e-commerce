@@ -8,7 +8,6 @@ const OrangeButton = styled.button`
   background-color: #dc7300;
   border-radius: 5px;
   transition: 0s background-color;
-  color:
 
   cursor: pointer;
   &:hover {

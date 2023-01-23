@@ -5,11 +5,14 @@ import Footer from "../components/Footer";
 import styled from "styled-components";
 import ButtonBlue from "../components/ButtonBlue";
 import ButtonRed from "../components/ButtonRed";
+import ButtonOrange from "../components/ButtonOrange";
+
 import DisplayCreated from "../components/displayCreatedItem";
 import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
+  width: 30dvw;
   flex-direction: column;
   align-items: flex-start;
   margin-inline: 2rem;
@@ -86,6 +89,10 @@ function Admin() {
     }
   }
 
+  function clear() {
+    window.location.reload(true);
+  }
+
   return (
     <div>
       <NavbarProfile>{user.username}</NavbarProfile>
@@ -131,6 +138,9 @@ function Admin() {
           >
             Add Item
           </ButtonBlue>
+          <ButtonOrange onClick={() => {
+              clear();
+            }} >Clear</ButtonOrange>
         </Wrapper>
         <Wrapper>
           <DisplayCreated>

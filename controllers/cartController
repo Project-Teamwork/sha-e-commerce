@@ -3,12 +3,13 @@ const Item = require("../modules/itemModule");
 
 const get_item_from_cart = async (req, res) => {
   try {
-    let cart = await Cart.findOne({ _id: req.params.id });
-    if (cart ) {
-      res.send(cart);
-    } else {
-      res.send({message: false});
-    }
+    let cart = await Cart.findOne({ userId: req.params.id });
+    res.send(cart)
+    // if (cart) {
+    //   res.send(cart);
+    // } else {
+    //   res.send({message: false});
+    // }
   } catch (err) {
     console.log(err);
     res.send("Something went wrong");
@@ -34,16 +35,16 @@ const add_item_to_cart = async (req, res) => {
     if (cart) {
       // check if product exists inside the cart
       const existingItemIndex = cart.items.findIndex(
-        (i) => i.req.body.itemId === cart.items.itemId
+        p => p.itemId == itemId
       );
       if (existingItemIndex >= 0) {
         // or if(existingItemIndex > -1)
         let existingItem = cart.items[existingItemIndex];
-        existingItem.quantity += cart.items.quantity;
+        existingItem.quantity += quantity;
         cart.items[existingItemIndex] = existingItem;
       } else {
         // if products doesn't exist inside the cart
-        cart.items.push(req.body);
+        cart.items.push({productId, name, quantity, price});
       }
       // Calculate the bill and save the cart
       cart.bill += req.items.quantity * req.items.price;

@@ -41,11 +41,11 @@ In case the application doesn't start at `http://localhost:3000` then:
 1. At the command prompt go to the projects repository and then inside the folder *client* by typing `cd client`
 2. Then type `npm start` to start React
 
+### Dependencies
+
 The project has the following dependencies:
 
-For the Node.js:
-
-"dependencies": {
+For the Node.js dependencies:
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
@@ -54,7 +54,38 @@ For the Node.js:
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.4"
 
+and development dependencies: 
+    "nodemon": "^2.0.20"
 
+React dependencies are:
+    "axios": "^1.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.7.0",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
+    "web-vitals": "^2.1.4"
+
+Environmental requirements: 
+Create a .env file and fill in the following properties with your preferences.
+    MONGO_URI
+    TOKEN_KEY
+    TOKEN_EXPIRES_IN
+
+## How to use the project
+Initially at the beginning of the project the user lands at the home page `/`
+There the user can Register, Login or browse the categories
+Once the user registers at `/auth/register`, he/she gets redirected to the login page `/auth/login`
+From the login page the user gets redirected to the profile page `/profile` 
+From the profile page the user can select a category of products and redirect to the selected category's page, namely `/profile/category/mobile`, `/profile/category/laptops` or `/category/accessories`
+
+The rest of the project remains unfinished
+
+## Credits
+The project owners are:
+- Anita (Ourania) Angelidou
+- Mohamed Asif Yousufi 
 
 
 

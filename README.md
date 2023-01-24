@@ -1,4 +1,4 @@
-# sha-e-commers
+# sha-e-commerce
 
 ## An E-commerce shop with electronics
 
